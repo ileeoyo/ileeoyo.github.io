@@ -1,0 +1,143 @@
+baseURL = "https://ileeoyo.gitee.io/"
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+languageCode = 'zh-cn'
+theme = "jane"
+title = "随写日记"
+
+copyright = "" # default: author.name ↓        # 默认为下面配置的author.name ↓
+disqusShortname = "" # disqus_shortname
+googleAnalytics = "" # UA-XXXXXXXX-X
+hasCJKLanguage = true # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+rssLimit = 20 # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
+# language support # en / zh-cn / other... translations present in i18n/
+defaultContentLanguage = "zh-cn" # Default language to use
+
+[pagination]
+pagerSize = 5
+
+# multilingual support example
+[langusges]
+[languages.en]
+languageCode = "en"
+title = "Jane - A simple theme for Hugo"
+weight = 1
+[languages.zh-cn]
+languageCode = "zh-cn"
+title = "随写日记"
+weight = 2
+
+[sitemap] # essential                     # 必需
+changefreq = "weekly"
+filename = "sitemap.xml"
+priority = 0.5
+
+[[menu.main]] # config your menu              # 配置目录
+identifier = "home"
+name = "主页"
+url = "/"
+weight = 10
+[[menu.main]]
+identifier = "archives"
+name = "归档"
+url = "/post/"
+weight = 20
+[[menu.main]]
+identifier = "tags"
+name = "标签"
+url = "/tags/"
+weight = 30
+[[menu.main]]
+identifier = "categories"
+name = "分类"
+url = "/categories/"
+weight = 40
+[[menu.main]]
+name = "HUGO"
+url = "https://gohugo.io"
+weight = 50
+
+[frontmatter]
+lastmod = ["lastmod", ":git", ":fileModTime", "date", "publishDate", ":default"]
+
+[params]
+homeFullContent = false # if false, show post summaries on home page. Otherwise show full content.
+rssFullContent = false # if false, Rss feed instead of the summary
+since = "2020" # Site creation time          # 站点建立时间
+# paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
+
+archive-paginate = 8 
+showAuthorInfo = true # show author info below the article
+
+# show word count and read time ?                       # 是否显示字数统计与阅读时间
+moreMeta = true
+
+# site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
+description = "" 
+keywords = ["Hugo", "theme", "jane"] 
+logoTitle = "随写日记" # default: the title value    # 默认值: 上面设置的title值
+
+# The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+dateFormatToUse = "2006-01-02"
+
+# 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+# Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank">CC BY-NC-ND 4.0</a>' 
+photoswipe = true # see https://github.com/dimsemenov/PhotoSwipe            # 是否启用PhotoSwipe（图片可点击）
+toc = true # 是否开启目录
+
+# Link custom CSS and JS assets
+#   (relative to /static/css and /static/js respectively)
+customCSS = ['custom.css'] # if ['custom.css'], load '/static/css/custom.css' file
+customJS = [] # if ['custom.js'], load '/static/js/custom.js' file
+
+[params.social] # 社交链接
+a-email = "mailto:ileeoyo@gmail.com"
+#   b-stack-overflow = "http://localhost:1313"
+#   c-twitter = "http://localhost:1313"
+#   d-facebook = "http://localhost:1313"
+#   e-linkedin = "http://localhost:1313"
+#   f-google = "http://localhost:1313"
+g-github = "https://github.com/ileeoyo"
+#   h-weibo = "http://localhost:1313"
+#   i-zhihu = "http://localhost:1313"
+#   j-douban = "http://localhost:1313"
+#   k-pocket = "http://localhost:1313"
+#   l-tumblr = "http://localhost:1313"
+#   m-instagram = "http://localhost:1313"
+#   n-gitlab = "http://localhost:1313"
+#   o-goodreads = "http://localhost:1313"
+#   p-coding = "http://localhost:1313"
+#   q-bilibili = "http://localhost:1313"
+#   r-codeforces = "http://localhost:1313"
+#   s-mastodon = "http://localhost:1313"
+
+[params.imgCDN.jsdelivr]
+enable = true
+host = "https://cdn.jsdelivr.net/gh/ileeoyo/ileeoyo.github.io@latest/content/"
+
+[params.author]
+email = "ileeoyo@gmail.com"
+name = "ileeoyo"
+url = "/about"
+
+[markup]
+defaultMarkdownHandler = "goldmark" # blackfriday or goldmark
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = true
+hl_Lines = ''
+hl_inline = false
+lineAnchors = ''
+lineNoStart = 1
+lineNos = true
+lineNumbersInTable = false
+noClasses = true
+noHl = false
+style = 'onedark'
+tabWidth = 4
