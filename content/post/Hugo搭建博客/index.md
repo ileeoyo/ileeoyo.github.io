@@ -57,7 +57,7 @@ hugo not installed. An error occurred during installation:
 
 安装了homebrew的可以用homebrew安装
 
-```
+```shell
 brew install hugo
 ```
 
@@ -110,7 +110,7 @@ hello world中间有个空格，需要引号括起来
 
 至此hugo安装完成。可以`vim content/posts/hello world.md`修改文件，或者用各种markdown编辑器，我用的是typora
 
-```
+```yaml
   ---
   title: "Test"
   date: 2020-05-09T20:15:41+08:00
@@ -120,7 +120,7 @@ hello world中间有个空格，需要引号括起来
 
 这是md创建后初始的样子，上面的内容依次是标题，时间，草稿，是hugo文章的一些信息。可以在下面修改。比如先写个hello world
 
-```
+```yaml
 ---
 title: "Hello World"
 date: 2020-05-09T20:16:26+08:00
@@ -265,7 +265,7 @@ git push
 
 同时md文件的头部会增加一行`typora-root-url`标识
 
-```
+```yaml
 title: "Test"
 date: 2020-05-09T21:15:41+08:00
 draft: false

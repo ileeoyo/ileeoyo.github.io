@@ -10,43 +10,44 @@ typora-copy-images-to: ./
 
 ## 前言
 
-距离首次用hugo搭建博客已经时隔多年，hugo版本升级也十分活跃，所用的jane主题也有了很大的更新。近日索性重新搭建hugo博客，所用的hugo版本为最新版本`0.138.0`，jane主题也是最新的master分支，平台由gitee pages换成github pages
+距离首次用Hugo搭建博客已经时隔多年，Hugo版本升级也十分活跃，所用的jane主题也有了很大的更新。近日索性重新搭建Hugo博客，所用的Hugo版本为最新版本`0.138.0`，jane主题也是最新的master分支，平台由~~gitee Pages~~(服务已停用)换成GitHub Pages
 
 ## 开始
 
-鉴于之前使用hugo的经验，很多内容不再赘述，[参考上文](./Hugo搭建博客)，只记录发生的新版本变化，
+鉴于此前使用Hugo的经验，很多内容不再赘述，[参考上文Hugo搭建博客](./Hugo搭建博客)，只记录发生的新版本变化
 
 ### 1. 创建GitHub项目
 
-[参考github官网](https://pages.github.com/)
+[参考GitHub官网](https://pages.github.com/)
 
-1. 注意：github要求Pages仓库必须是public。
+1. 注意：GitHub要求Pages仓库必须是public。
 
-2. 与之前有所不同，现在创建一个仓库名称叫做`username.github.io`，这样项目生成的github pages域名路径就是`username.github.io`。
+2. 与此前有所不同，现在创建一个仓库名称叫做`username.github.io`，username即为自己GitHub账户名。这样项目生成的GitHub Pages域名路径就是`username.github.io`。
 
-以前github pages的要求是创建一个仓库名称必须为`username`，经过最新测试这样已经不行了，这样生成的github pages域名路径是`username.github.io/username`
+以前GitHub Pages的要求是创建一个仓库名称必须为`username`，经过最新测试这样已经不行，这样生成的GitHub Pages域名路径是`username.github.io/username`
 
-### 2. 本机安装hugo
+### 2. 本机安装Hugo
 
-1. 安装最新的hugo，windows上使用`choco install hugo-extended`，注意使用管理员命令行。
-2. 安装dart-sass，我用的jane主题需要用上sass的特性，没安装hugo启动会报错，干脆一起安装了。`choco install sass`。[参考官网介绍](https://discourse.gohugo.io/t/using-the-dart-sass-transpiler/41878)
+1. 安装最新的Hugo，windows上使用`choco install hugo-extended`，注意使用管理员命令行。
+2. 安装dart-sass，我用的jane主题需要用上sass的特性，没安装Hugo启动会报错，干脆一起安装了。`choco install sass`。[参考Hugo官网介绍](https://discourse.gohugo.io/t/using-the-dart-sass-transpiler/41878)
 
 ### 3. 初始化Hugo项目
 
 [参考官网quick start](https://gohugo.io/getting-started/quick-start/)
 
-```
-hugo new site username # 项目名，我这里同github用户名
+```shell
+hugo new site username # 项目名，我这里同GitHub用户名
 cd username
 git init
 git add .
 git commit -m 'init'
-git push origin -u url #仓库URL
+git remote add origin $url
+git push -u origin main
 ```
 
 ### 4. 添加jane主题
 
-[参考Github项目](https://github.com/xianmin/hugo-theme-jane)
+[参考GitHub项目](https://github.com/xianmin/hugo-theme-jane)
 
 ```shell
 git submodule add https://github.com/xianmin/hugo-theme-jane themes/jane
@@ -58,9 +59,9 @@ git submodule add https://github.com/xianmin/hugo-theme-jane themes/jane
 theme = 'jane'
 ```
 
-### 5. 添加github actions
+### 5. 添加GitHub Actions
 
-   [参考官网](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
+   [参考Hugo官网](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
 
    创建文件`.github/workflows/hugo.yaml`
 
@@ -141,15 +142,15 @@ theme = 'jane'
                  uses: actions/deploy-pages@v4
    ```
 
-   ### 6. 设置github仓库
+   ### 6. 设置GitHub仓库
 
 在仓库的**Setting>Pages>Build and deployment**，选择Github Actions构建Pages，而不是Deploy from a branch
 
 ![image-20241107114748283](./image-20241107114748283.png)
 
-### 7. 迁移之前的hugo文章
+### 7. 迁移此前的Hugo文章
 
-把以前写好的文章文件夹复制到新项目中。路径：**/content/post**
+把以前写好的文章文件夹复制到新项目中。路径：`content/post`
 
 ### 8. 设置语法高亮
 
@@ -188,13 +189,13 @@ tabWidth = 4
 
 3. 选择语法高亮颜色主题
 
-   [具体查看网址](https://xyproto.github.io/splash/docs/all.html)，有几十款主题供选择，只需要修改上面配置中的style即可
+   [具体查看网址](https://xyproto.github.io/splash/docs/all.html)，有几十款主题供选择，只需要修改上面配置中的style即可，这里我使用的是onedark
 
 ### 9. 图片保存
 
 1. ~~老办法~~
 
-以前图片保存在**/static/images/文章名称/图片名称**，hugo会在部署时吧static目录下的文件原封不动放入根路径。然后在文章中引用图片**/images/文章名称/图片名称**。这样网页就能正常显示图片，但是有个问题，在typora写md时，由于路径问题，不能正常显示图片。
+以前图片保存在`/static/images/文章名称/图片名称`，Hugo会在部署时吧`static`目录下的文件原封不动放入根路径。然后在文章中引用图片`/images/文章名称/图片名称`。这样网页就能正常显示图片，但是有个问题，在typora写md时，由于路径问题，不能正常显示图片。
 
 所以需要在文章的yaml frontmatter中配置：
 
@@ -209,18 +210,18 @@ typora-copy-images-to: ../../static/images/${filename} # 导入或者粘贴图�
 
 2. 新办法
 
-在创建新文章时，不直接创建**文章名称.md**文件，二是创建一级目录**文章名称/index.md**。这种方式叫做被叫做[page bundles](https://hugo.opendocs.io/content-management/page-bundles/)
+在创建新文章时，不直接创建`文章名称.md`文件，二是创建一级目录`文章名称/index.md`。这种方式叫做被叫做[page bundles](https://hugo.opendocs.io/getting-started/glossary/#page-bundle)
 
 同时配置yaml frontmatter：
 
-```
+```yaml
 ---
 typora-root-url: ./ # 此时可以不要这个配置
 typora-copy-images-to: ./ # 可以不配置，添加文章图片时手动把图片放到当前文章目录下亦可，增加该配置只是用typora时更方便
 ---
 ```
 
-这样粘贴图片时，图片直接放到和文章同一个目录下，引用图片时**./图片名称**。这样hugo生成的网页时，图片和文章也是同一级目录。而且在使用非typora编辑器也可以正常显示图片，比如***VsCode***
+这样粘贴图片时，图片直接放到和文章同一个目录下，引用图片时`./图片名称`。这样Hugo生成网页时，图片和文章也是同一级目录。而且在使用非typora编辑器也可以正常显示图片，比如***VsCode***
 
 ### 10. 图片加速
 
@@ -246,13 +247,13 @@ host = "https://cdn.jsdelivr.net/gh/username/pages-repository@latest/content/" #
 <img class="mx-auto" alt="{{ .Text }}" src="{{ $img_destination | safeURL }}" />
 ```
 
-上面html文件会hook图片渲染html的环节，含义为：判断变量`params.imgCDN.jsdelivr.enable`开启，并且Hugo并不是运行在内置的开发服务器模式（本地启动调试），则替换图片标签src为`params.imgCDN.jsdelivr.host+fileDir+originalImageUrl`。
+上面html文件会hook渲染html生成img标签的环节，含义为：判断变量`params.imgCDN.jsdelivr.enable`开启，并且Hugo并不是运行在内置的开发服务器模式（本地启动调试），则替换图片标签src为`params.imgCDN.jsdelivr.host + fileDir + originalImageUrl`。
 
 - 与博客中不同的是，这里使用了`.Page.File.Dir`而不是`.Page.RelPermalink`。jsdeliver引用的是Github仓库文件夹路径，应该使用`.Page.File.Dir`。
 
 ```
-.Page.File.Dir hugo生成前文件夹路径
-.Page.RelPermalink hugo生成后URL路径。此处使用jsdelivr应该引用.Page.File.Dir
+.Page.File.Dir Hugo生成前文件夹路径
+.Page.RelPermalink Hugo生成后URL路径。此处使用jsdelivr应该引用.Page.File.Dir
 ```
 
 
