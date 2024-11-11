@@ -1,0 +1,12 @@
+[zh-cn]
+languageCode = "zh-cn"
+languageDirection = 'ltr'
+languageName = 'Chinese'
+title = "随写日记"
+weight = 1
+[en]
+languageCode = "en"
+languageDirection = 'ltr'
+languageName = 'English'
+title = "Jane - A simple theme for Hugo"
+weight = 2

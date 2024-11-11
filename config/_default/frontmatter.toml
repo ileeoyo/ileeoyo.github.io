@@ -1,0 +1,4 @@
+date = ['date', 'publishdate', 'pubdate', 'published', 'lastmod', 'modified']
+expiryDate = ['expirydate', 'unpublishdate']
+lastmod = ["lastmod", ":git", ":fileModTime", "date", "publishDate", ":default"]
+publishDate = ['publishdate', 'pubdate', 'published', 'date']

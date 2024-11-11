@@ -1,0 +1,27 @@
+
+
+[[main]] # config your menu              # 配置目录
+identifier = "home"
+name = "主页"
+# parent='archives' #父级菜单identifier，用于父子嵌套菜单
+pageRef = "/"
+weight = 10
+[[main]]
+identifier = "archives"
+name = "归档"
+pageRef = "/post/"
+weight = 20
+[[main]]
+identifier = "tags"
+name = "标签"
+pageRef = "/tags/"
+weight = 30
+[[main]]
+identifier = "categories"
+name = "分类"
+pageRef = "/categories/"
+weight = 40
+[[main]]
+name = "HUGO"
+url = "https://gohugo.io" # 外部链接用URL，内部链接用pageRef
+weight = 50

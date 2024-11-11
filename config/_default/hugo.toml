@@ -1,0 +1,14 @@
+baseURL = "https://ileeoyo.gitee.io/"
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+languageCode = 'zh-cn'
+theme = "jane"
+title = "随写日记"
+
+copyright = "" # default: author.name ↓        # 默认为下面配置的author.name ↓
+defaultContentLanguage = "zh-cn" # Default language to use
+disqusShortname = "" # disqus_shortname
+googleAnalytics = "" # UA-XXXXXXXX-X
+hasCJKLanguage = true # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+rssLimit = 20 # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
