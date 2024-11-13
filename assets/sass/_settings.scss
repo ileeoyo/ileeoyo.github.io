@@ -1,2 +1,8 @@
 $article-max-width: 55em;
-
+/**------------------------------------------------------------------------
+ *                            Theme Color
+ * use picocss theme color, see: https://picocss.com/docs/version-picker .
+ * Values: 'red', 'pink', 'fuchsia', 'purple', 'violet', 'indigo', 'blue', 'azure', 'cyan',
+ * 'jade', 'green', 'lime', 'yellow', 'amber', 'pumpkin', 'orange', 'sand', 'grey', 'zinc', 'slate'
+ *------------------------------------------------------------------------**/
+ $jane-theme-color: 'slate';
