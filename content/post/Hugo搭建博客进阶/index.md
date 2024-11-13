@@ -10,7 +10,7 @@ typora-copy-images-to: ./
 
 ## 前言
 
-距离首次用Hugo搭建博客已经时隔多年，Hugo版本升级也十分活跃，所用的jane主题也有了很大的更新。近日索性重新搭建Hugo博客，所用的Hugo版本为最新版本`0.138.0`，jane主题也是最新的master分支，平台由~~gitee Pages~~(服务已停用)换成GitHub Pages
+距离首次用Hugo搭建博客已经时隔多年，Hugo版本升级也十分活跃，所用的Jane主题也有了很大的更新。近日索性重新搭建Hugo博客，所用的Hugo版本为最新版本`0.138.0`，Jane主题也是最新的master分支，平台由~~Gitee Pages~~(服务已停用)换成GitHub Pages
 
 ## 开始
 
@@ -29,7 +29,7 @@ typora-copy-images-to: ./
 ### 2. 本机安装Hugo
 
 1. 安装最新的Hugo，windows上使用`choco install hugo-extended`，注意使用管理员命令行。
-2. 安装dart-sass，我用的jane主题需要用上sass的特性，没安装Hugo启动会报错，干脆一起安装了。`choco install sass`。[参考Hugo官网介绍](https://discourse.gohugo.io/t/using-the-dart-sass-transpiler/41878)
+2. 安装dart-sass，我用的Jane主题需要用上sass的特性，没安装Hugo启动会报错，干脆一起安装了。`choco install sass`。[参考Hugo官网介绍](https://discourse.gohugo.io/t/using-the-dart-sass-transpiler/41878)
 
 ### 3. 初始化Hugo项目
 
@@ -45,7 +45,7 @@ git remote add origin $url
 git push -u origin main
 ```
 
-### 4. 添加jane主题
+### 4. 添加Jane主题
 
 [参考GitHub项目](https://github.com/xianmin/hugo-theme-jane)
 
