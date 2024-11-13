@@ -10,4 +10,4 @@ copyright = "" # default: author.name ↓        # 默认为下面配置的autho
 defaultContentLanguage = "zh-cn" # Default language to use
 hasCJKLanguage = true # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
 rssLimit = 20 # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
-googleAnalytics = "G-0DVFB9D2D0"      # UA-XXXXXXXX-X
+# googleAnalytics = "G-0DVFB9D2D0"      # UA-XXXXXXXX-X
