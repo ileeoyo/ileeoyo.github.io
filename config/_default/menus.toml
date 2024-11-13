@@ -25,3 +25,8 @@ weight = 40
 name = "HUGO"
 url = "https://gohugo.io" # 外部链接用URL，内部链接用pageRef
 weight = 50
+[[main]]
+name = 'JANE'
+parent = 'HUGO'
+url = "https://github.com/xianmin/hugo-theme-jane"
+weight = 20
