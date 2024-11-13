@@ -238,7 +238,7 @@ host = "https://cdn.jsdelivr.net/gh/username/pages-repository@latest/content/" #
 ```
 2. 新建如下文件`layouts/_default/_markup/render-image.html`
 
-```html
+```go-html-template
 {{- $img_destination := .Destination }}
 {{ if (and .Page.Site.Params.imgCDN.jsdelivr.enable (not hugo.IsServer)) }}
     {{ $img_destination = (print .Page.Site.Params.imgCDN.jsdelivr.host (path.Join .Page.File.Dir .Destination)) }}
