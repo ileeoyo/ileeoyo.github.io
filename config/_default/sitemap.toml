@@ -1,4 +1,3 @@
-[sitemap] # essential                     # 必需
 changefreq = "weekly"
 filename = "sitemap.xml"
 priority = 0.5
