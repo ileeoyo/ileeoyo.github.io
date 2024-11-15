@@ -1,7 +1,7 @@
 ---
 title: "RustDesk服务搭建"
 date: 2024-11-15T16:23:15+08:00
-draft: true
+draft: false
 tags: ["网络","远程"]
 categories: ["折腾日记"]
 typora-root-url: ./
