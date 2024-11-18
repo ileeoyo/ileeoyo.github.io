@@ -159,9 +159,9 @@ Windows RustDesk在设置中启动服务后会在Windows服务中注册一个Ser
 
 1. 这样我们模仿软件注册的Service，手动创建一个Service。先把RustDesk右下角托盘退出，在管理器权限下CMD终端输入以下命令。注意Service服务名称不要和软件自身创建Service相同，**不要叫做`RustDesk`**，避免自己创建的服务被RustDesk删除。这里我的服务名是`RustDeskServer`
 
-```cmd
-sc.exe create RustDeskServer binPath="C:\develop\RustDesk\RustDesk.exe --service" start=auto DisplayName="RustDesk Server"
-```
+    ```
+    sc.exe create RustDeskServer binPath="C:\develop\RustDesk\RustDesk.exe --service" start=auto DisplayName="RustDesk Server"
+    ```
 
 2. 打开系统服务，找到RustDeskServer，右键启动，等待服务显示正在运行即可。
 
