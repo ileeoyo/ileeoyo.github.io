@@ -8,4 +8,4 @@
     {{ $img_destination = (print .Page.Site.Params.imgCDN.jsdelivr.host (path.Join .Page.File.Dir .Destination)) }}
 {{ end }}
 
-<img class="mx-auto" alt="{{ .Text }}" src="{{ $img_destination | safeURL }}" />
+<img class="mx-auto" alt="{{ .Text }}" src="{{ $img_destination | safeURL }}" style="margin:0 auto;display:block;"/>
