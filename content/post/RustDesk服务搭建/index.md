@@ -103,7 +103,6 @@ db_v2.sqlite3-wal
 ```
 
 
-
 >这里文件生成在了跟路径下十分怪异，强迫症有些受不了。RustDesk的文件是生成在执行命令的目录下，但是由于是init.d开机自启动，运行在跟路径下`/`，搜寻了很久也没找到指定init.d脚本执行工作目录的办法（Systemd有WorkingDirectory参数）。而且RustDesk也没有指定文件目录的参数。暂且作罢，希望后续能有更好的解决方案
 
 ## 配置网络
@@ -154,8 +153,24 @@ Github官网：[https://github.com/rustdesk/rustdesk](https://github.com/rustdes
 
 ### 设置开机自启动
 
+Windows RustDesk在设置中启动服务后会在Windows服务中注册一个Service，但是如果右下角托盘点击退出后，会同时删除刚刚创建的服务。这样就没法开机自启动，可能RustDesk在设计上认为，退出了托盘，就是不想再自启了。我的RustDesk安装路径在`C:\develop`下，可以看到软件注册的服务命令是`"C:\develop\RustDesk\RustDesk.exe" --service`，服务名称是`RustDesk`
 
+![image-20241118141855069](./image-20241118141855069.png)
+
+1. 这样我们模仿软件注册的Service，手动创建一个Service。先把RustDesk右下角托盘退出，在管理器权限下CMD终端输入以下命令。注意Service服务名称不要和软件自身创建Service相同，**不要叫做`RustDesk`**，避免自己创建的服务被RustDesk删除。这里我的服务名是`RustDeskServer`
+
+```cmd
+sc.exe create RustDeskServer binPath="C:\develop\RustDesk\RustDesk.exe --service" start=auto DisplayName="RustDesk Server"
+```
+
+2. 打开系统服务，找到RustDeskServer，右键启动，等待服务显示正在运行即可。
+
+3. 打开RustDesk程序，主界面下方应该显示“就绪”，而不是“启动服务”按钮。说明我们自己创建的服务已经在运行就绪
+
+这样，我们已经实现的Windows上RustDesk服务的开机自启，直接可以被其他电脑远程。而且没有打开主窗口，右下角也没有托盘。如果想远程其他电脑，只需要手动打开RustDesk软件即可，点**x**关闭窗口，服务也不会被退出，仍然可以被其他电脑远程。
+
+> 参考：[https://akirachan.notion.site/Windows-RustDesk-2faf90921e98433d9a573e4589bafecd](https://akirachan.notion.site/Windows-RustDesk-2faf90921e98433d9a573e4589bafecd|https://akirachan.notion.site/Windows-RustDesk-2faf90921e98433d9a573e4589bafecd)
 
 ## 结语
 
-使用了几天RustDesk体验十分良好，延迟比较低（家里宽度网络好的优势），目前已经作为主力使用。ToDesk作为备用方案，防止单一方案故障。后续继续探索RustDesk的Tcp Tunnel功能和RDP功能（基于Tcp Tunnel）
+使用了几天RustDesk体验十分良好，延迟比较低（家里宽带网络好的优势），目前已经作为主力使用。ToDesk作为备用方案，防止单一方案故障。后续继续探索RustDesk的Tcp Tunnel功能和RDP功能（基于Tcp Tunnel）
